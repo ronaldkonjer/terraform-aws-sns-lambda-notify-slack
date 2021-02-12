@@ -1,13 +1,13 @@
 module "default_label" {
   source     = "cloudposse/label/null"
-  version    = "0.22.1"
+  version    = "0.24.1"
   attributes = concat(module.this.attributes, ["default"])
   context    = module.this.context
 }
 
 module "notify_slack" {
   source               = "terraform-aws-modules/notify-slack/aws"
-  version              = "4.0"
+  version              = "4.9.0"
   create               = module.this.enabled
   create_sns_topic     = var.create_sns_topic
   lambda_function_name = module.default_label.id
